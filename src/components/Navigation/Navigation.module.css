@@ -1,0 +1,23 @@
+.link {
+  display: inline-block;
+  text-decoration: none;
+  padding: 16px;
+  font-weight: 500;
+  color: #003049;
+  font-size: 18px;
+}
+
+.activeLink {
+  composes: link;
+  color: #d62828;
+}
+
+.navigation {
+  display: flex;
+  border-bottom: 2px solid #f77f00;
+}
+
+.navigation,
+.link {
+  background-color: #ede0d4;
+}

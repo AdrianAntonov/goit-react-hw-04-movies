@@ -1,0 +1,17 @@
+.reviews {
+  margin-left: 1rem;
+  margin-top: 20px;
+}
+
+.reviewCard {
+  margin: 20px 0px;
+}
+
+.content {
+  margin-top: 5px;
+  margin-left: 10px;
+}
+
+.author {
+  font-weight: bold;
+}
