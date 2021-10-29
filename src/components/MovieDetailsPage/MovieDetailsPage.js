@@ -11,13 +11,13 @@ import * as DataFetch from "../../services/tmdb-api";
 import MovieCast from "../MovieCast/MovieCast";
 import MovieReviews from "../MovieReviews/MovieReviews.js/MovieReviews";
 import styles from "./MovieDetailsPage.module.css";
+import photo from "../../utils/no-image-available.jpg";
 
 function MovieDetailsPage() {
   const { moviesId } = useParams();
   const { url, path } = useRouteMatch();
   const history = useHistory();
   const location = useLocation();
-  console.log(location.state.from);
 
   const [movieDetails, setMovieDetails] = useState([]);
 
@@ -27,19 +27,16 @@ function MovieDetailsPage() {
     });
   }, [moviesId]);
 
-  const {
-    title,
-    // backdrop_path,
-    // poster_path,
-    vote_average,
-    overview,
-    genres,
-    release_date,
-  } = movieDetails;
+  const { title, poster_path, vote_average, overview, genres, release_date } =
+    movieDetails;
 
   const onGoBack = () => {
     history.push(location?.state?.from?.location ?? "/");
   };
+
+  const poster = poster_path
+    ? `https://image.tmdb.org/t/p/w300/${poster_path}`
+    : photo;
 
   return (
     <div className={styles.movieDetails}>
@@ -47,15 +44,17 @@ function MovieDetailsPage() {
         <div>
           <button type="button" onClick={onGoBack} className={styles.back}>
             {/* &#8678; Go back */}
-            {location.state?.from?.label ?? "Back to Home"}
+            {/* {location.state?.from?.label ?? "Back to Home"} */}
+            {location.state?.from?.location?.pathname === "/movies"
+              ? location.state?.from?.label
+              : "Back to Home"}
           </button>
           <section className={styles.block}>
             <div className={styles.poster}>
-              {/* <img src={backdrop_path} alt={title} /> */}
-              {/* <img src={poster_path} alt={title} /> */}
+              <img src={poster} alt={title} className={styles.posterImage} />
             </div>
             <div className={styles.info}>
-              <h2 style={{ textDecoration: "underline" }}>{title}</h2>
+              <h2>{title}</h2>
               <p>
                 <span className={styles.text}>Release date:</span>
                 {release_date}

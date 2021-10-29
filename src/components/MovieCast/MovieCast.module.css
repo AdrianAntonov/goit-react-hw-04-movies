@@ -1,12 +1,17 @@
-.casting {
+.cast {
   margin-top: 20px;
   margin-left: 1rem;
 }
 
-.castingCard {
-  margin-bottom: 1.2rem;
+.castCard {
+  margin-bottom: 3rem;
 }
 
-.image {
-  margin: 1rem 0px;
+.castImage {
+  width: 100px;
+  height: 150px;
+}
+
+.castCharacter {
+  margin-top: 5px;
 }

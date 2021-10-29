@@ -6,7 +6,6 @@ import styles from "./HomePage.module.css";
 
 function HomePage() {
   const location = useLocation();
-  // console.log(location);
   const [movies, setMovies] = useState([]);
 
   useEffect(() => {
@@ -18,7 +17,7 @@ function HomePage() {
       <h2 className={styles.heading}>Trending today</h2>
       <ul>
         {movies.map((movie) => (
-          <li key={movie.id} className={styles.list}>
+          <li key={movie.id}>
             <NavLink
               className={styles.link}
               to={{

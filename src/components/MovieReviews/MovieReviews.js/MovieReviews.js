@@ -15,11 +15,10 @@ function MovieReviews() {
 
   return (
     <div className={styles.reviews}>
-      {/* <h3>MovieReviews</h3> */}
       {reviews.length > 0 ? (
         reviews.map((item) => (
-          <div className={styles.reviewCard}>
-            <ul key={item.id}>
+          <div key={item.id} className={styles.reviewCard}>
+            <ul>
               <li className={styles.author}>Author: {item.author}</li>
               <p className={styles.content}>{item.content}</p>
             </ul>

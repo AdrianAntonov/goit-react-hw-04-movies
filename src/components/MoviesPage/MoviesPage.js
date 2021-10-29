@@ -1,4 +1,3 @@
-// import { Link, useRouteMatch } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link, useRouteMatch, useLocation, useHistory } from "react-router-dom";
 import * as DataFetch from "../../services/tmdb-api";
@@ -34,14 +33,12 @@ function MoviesPage() {
     }
 
     DataFetch.fetchingSearchText(name).then((response) => {
-      // console.log(response);
       setSearchResult(response.results);
     });
   }, [location.search, name]);
 
   return (
     <div className={styles.movies}>
-      {/* <h3>MoviesPage</h3> */}
       <Searchbar handleSearch={handleSearch} />
       <ul>
         {searchResult &&
